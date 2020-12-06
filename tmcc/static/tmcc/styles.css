@@ -36,8 +36,8 @@ td img {
 }
 .navbar-brand:hover {
     font-weight: bolder;
-    box-shadow: 5px 5px 5px 0;
-    padding: 10px;
+    box-shadow: 0.3em 0.3em 0.3em 0;
+    padding: 1em;
 }
 
 footer {
@@ -47,8 +47,6 @@ footer {
     height: 30%;
     text-align: center;
     font-weight: bold;
-}
-footer h5 {
 }
 
 .icons, .icons img{
