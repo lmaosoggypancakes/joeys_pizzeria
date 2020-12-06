@@ -1,0 +1,52 @@
+{% extends 'tmcc/layout.html' %}
+{% block body %}
+<div class="container">
+    <h1 id="apply-h1">Interested in applying? Fill out the form below! </h1>
+    <form method="post" id="apply-form">
+        <script>
+            function onSubmit(token) {
+                // animation requirement
+                document.querySelector("#apply-h1").style.animationPlayState = "running";
+                setTimeout(() => {  submit_apply(
+                    document.querySelector("#form-username").value,
+                    document.querySelector("#form-email").value,
+                    document.querySelector("#form-work-experience").value,
+                    document.querySelector("#form-questions").value,
+                    document.querySelector("#form-newsletter").checked
+                ) }, 7500);
+              
+            }
+          </script>
+        {% csrf_token %}
+        <div class="form-row">
+            <label for="form-username">Username</label>
+            <input type="text" class="form-control" id="form-username" placeholder="username">
+            <br>
+            <label for="form-email">Email Address</label>
+            <input type="email" name="email" id="form-email" class="form-control" placeholder="email">
+          </div>
+          <br><br>
+          <div class="form-group">
+              <label for="form-work-experience">Work Experience: </label>
+              <select name="experience" id="form-work-experience">
+                  <option value="none">No prior work experience</option>
+                  <option value="1-5">1-5 Years</option>
+                  <option value="5-10">5-10 Years</option>
+                  <option value="10+">10+ Years</option>
+              </select>
+          </div>
+          <label for="form-questions">Questions?</label>
+          <div class="form-group">
+              <textarea name="questions" id="form-questions" cols="30" rows="10" class="form-control"></textarea>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="form-newsletter" name="newsletter">
+            <label class="form-check-label" for="form-newsletter">Email me about future job opportunities</label>
+          </div>
+        <button class="g-recaptcha" 
+            data-sitekey="6Ld9NfsZAAAAAFixY4shUoavQcvZAalPCrGxFRPE" onclick="onSubmit()">Submit</button>
+          <button type="reset" class="btn btn-danger">Reset Form</button>
+    </form>
+</div>
+
+{% endblock %}

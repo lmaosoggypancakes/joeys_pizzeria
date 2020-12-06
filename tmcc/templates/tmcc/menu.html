@@ -1,0 +1,29 @@
+{% extends "tmcc/layout.html" %}
+{% block body %}
+<div class="container">
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Description</th>
+        <th scope="col">Image</th>
+        {% if request.user.is_authenticated %}
+        <th scope="col">Add to order</th>
+        {% endif %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in items%}
+      <tr>
+        <th scope="row">{{item.title}}</th>
+        <td>{{item.price}}</td>
+        <td>{{item.desc}}</td>
+        <td><img src="{{item.img}}" alt="{{item.title}}"></td>
+        <td><button class="btn btn-primary" data-order="{{item.id}}" onclick="add_to_order(this.dataset.order)">Add</button></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+{% endblock %}
