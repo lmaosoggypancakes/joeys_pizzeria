@@ -109,3 +109,9 @@ h1 {
     animation-duration: 5s;
     animation-play-state: paused;
 }
+#locations li {
+    font-size: 2em;
+}
+#visit-us h1 {
+    font-size: 3em;
+}
